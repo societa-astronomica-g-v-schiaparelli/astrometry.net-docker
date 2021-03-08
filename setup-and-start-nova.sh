@@ -31,16 +31,13 @@ for file in $(ls -p /data1/INDEXES/ | grep -v /); do
     ln -s /data1/INDEXES/$file /data2/nova/$file
 done
 
-INDEX_TYPE="2MASS" # GAIA, 2MASS, otherwise all
-if [ "$INDEX_TYPE" == "GAIA" ]; then
-    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /root/nova/net/nova.cfg
-    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /usr/local/etc/astrometry.cfg
-elif [ "$INDEX_TYPE" == "2MASS" ]; then
+INDEX_TYPE="2MASS" # 2MASS, otherwise GAIA and TYCHO2
+if [ "$INDEX_TYPE" == "2MASS" ]; then
     echo -e "add_path /data1/INDEXES/4200\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /root/nova/net/nova.cfg
     echo -e "add_path /data1/INDEXES/4200\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /usr/local/etc/astrometry.cfg
 else
-    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nadd_path /data1/INDEXES/4200-full\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /root/nova/net/nova.cfg
-    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nadd_path /data1/INDEXES/4200-full\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /usr/local/etc/astrometry.cfg
+    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /root/nova/net/nova.cfg
+    echo -e "add_path /data1/INDEXES/4100\nadd_path /data1/INDEXES/5000\nautoindex\ninparallel\nminwidth 0.05\nmaxwidth 5" > /usr/local/etc/astrometry.cfg
 fi
 
 sed -i "s/SCALE_PRESET_SETTINGS = {'1':(0.1,180),/SCALE_PRESET_SETTINGS = {'1':(0.05,5),/g" /src/astrometry/net/views/submission.py

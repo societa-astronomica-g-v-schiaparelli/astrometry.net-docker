@@ -2,6 +2,7 @@
 
 FROM ubuntu:20.04
 EXPOSE 8000
+ENV ASTROMETRY_VERSION=0.84
 
 ##########
 # SOLVER #
@@ -52,7 +53,7 @@ WORKDIR /src
 # Astrometry.net
 RUN git clone https://github.com/dstndstn/astrometry.net.git astrometry \
     && cd astrometry \
-    && git checkout tags/0.84 \
+    && git checkout tags/${ASTROMETRY_VERSION} \
     && make \
     && make py \
     && make extra \

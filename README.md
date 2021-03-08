@@ -29,7 +29,7 @@ You need to download the index files from [here](http://data.astrometry.net/).
 The folder structure need to be:
 
 ```tree
-index-folder/
+|- index-folder/
     |- 4100/
         |- index-...
         |- ...

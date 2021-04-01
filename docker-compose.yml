@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+    astrometrynet:
+        build: .
+        container_name: astrometrynet
+        restart: always
+        volumes:
+            # local (less indexes, more speed)
+            - /home/osservatorio/astrometry.net/data-local:/data1/INDEXES
+            # nas (more indexes, less speed)
+            #- /media/nascdf/Platesolver/data:/data1/INDEXES
+        network_mode: "host"

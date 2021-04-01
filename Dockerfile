@@ -1,4 +1,4 @@
-# Dockerfile created by merging the two Dockerfiles in tags/0.84, folders docker/{solver,webservice}
+# Dockerfile created by merging the two Dockerfiles in tags/0.85, folders docker/{solver,webservice}
 
 FROM ubuntu:20.04
 EXPOSE 8000
@@ -99,9 +99,9 @@ RUN mv migrations/* /tmp && \
     python manage.py loaddata fixtures/initial_data.json && \
     python manage.py loaddata fixtures/flags.json
 
-#################
-# CUSTOMIZATION #
-#################
+##################
+# CUSTOMIZATIONS #
+##################
 
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
     openssh-server \

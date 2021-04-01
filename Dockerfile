@@ -1,7 +1,11 @@
 # Dockerfile created by merging the two Dockerfiles in tags/0.85, folders docker/{solver,webservice}
 
 FROM ubuntu:20.04
+
+# Change the exposed port if already used
 EXPOSE 8000
+
+# Change the astrometry.net version (NOT RECOMMENDED)
 ENV ASTROMETRY_VERSION=0.85
 
 ##########

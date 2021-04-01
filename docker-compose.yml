@@ -3,7 +3,7 @@ version: "3.9"
 services:
     astrometrynet:
         build: .
-        image: astrometrynet/astrometrynet
+        image: astrometrynet/astrometrynet:0.85
         container_name: astrometrynet
         restart: always
         volumes:

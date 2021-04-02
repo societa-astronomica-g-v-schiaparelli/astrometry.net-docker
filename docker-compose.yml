@@ -7,8 +7,11 @@ services:
         container_name: astrometrynet
         restart: always
         volumes:
+            # INDEX DATA
             # local (less indexes, more speed)
             - /home/osservatorio/astrometry.net/data-local:/data1/INDEXES
             # nas (more indexes, less speed)
             #- /media/nascdf/Platesolver/data:/data1/INDEXES
+            # SUBMISSIONS DATA
+            - /media/nascdf/Platesolver/submissions_data:/src/astrometry/net/data
         network_mode: "host"

@@ -31,6 +31,17 @@ ln -s /src/astrometry /root/nova
 ln -s $(which astrometry-engine) /src/astrometry/solver/backend
 ln -s /src/astrometry/plot/plotann.py /usr/local/bin
 
+###################
+# django database #
+###################
+
+if ! [ -f /src/astrometry/net/data/django.sqlite3 ]; then
+    mv /src/astrometry/net/django.sqlite3 /src/astrometry/net/data/django.sqlite3
+else
+    rm -f /src/astrometry/net/django.sqlite3
+fi
+ln -s /src/astrometry/net/data/django.sqlite3 /src/astrometry/net/django.sqlite3
+
 ########################
 # indexes and settings #
 ########################

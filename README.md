@@ -56,7 +56,7 @@ index-folder
 Build and execute with:
 
 ```bash
-docker build --tag astrometrynet/astrometrynet .
+docker build --tag astrometrynet/astrometrynet:0.85 .
 ASTROMETRY_INDEX_PATH='/your/path/to/index-folder'
 ASTROMETRY_SUBMISSIONS_PATH='/your/path/to/submissions'
 docker run --detach --net=host --volume=$ASTROMETRY_INDEX_PATH:/data1/INDEXES --volume=$ASTROMETRY_SUBMISSIONS_PATH:/src/astrometry/net/data --name=astrometrynet --restart=always astrometrynet/astrometrynet:0.85

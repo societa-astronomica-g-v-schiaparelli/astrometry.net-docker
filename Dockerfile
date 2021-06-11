@@ -55,9 +55,8 @@ RUN mkdir /src
 WORKDIR /src
 
 # Astrometry.net
-RUN git clone https://github.com/dstndstn/astrometry.net.git astrometry \
+RUN git clone --branch ${ASTROMETRY_VERSION} --depth 1 https://github.com/dstndstn/astrometry.net.git astrometry \
     && cd astrometry \
-    && git checkout tags/${ASTROMETRY_VERSION} \
     && make \
     && make py \
     && make extra \

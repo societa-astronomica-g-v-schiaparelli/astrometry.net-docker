@@ -6,7 +6,7 @@ FROM ubuntu:20.04
 EXPOSE 8000
 
 # Change the astrometry.net version (NOT RECOMMENDED)
-ENV ASTROMETRY_VERSION=0.85
+ENV ASTROMETRY_VERSION=0.86
 
 ##########
 # SOLVER #

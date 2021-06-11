@@ -2,7 +2,7 @@
 
 Docker scripts for local astrometry.net server.
 
-Version: 0.85 (tested also with 0.84)
+Version: 0.86 (tested also with 0.85, 0.84)
 
 References:
 
@@ -63,7 +63,7 @@ docker run --detach --net=host --volume=$ASTROMETRY_INDEX_PATH:/data1/INDEXES --
 ```
 
 As you can see, there are two volumes:
-- `ASTROMETRY_INDEX_PATH='/path/to/index-folder'`. This volume contain the index files: this folder _must_ have the structure illustrated in the previous section. 
+- `ASTROMETRY_INDEX_PATH='/path/to/index-folder'`. This volume contain the index files: this folder _must_ have the structure illustrated in the previous section.
 - `ASTROMETRY_SUBMISSIONS_PATH='/path/to/submissions'`. This volume contain the persistent submissions database, i.e. images, jobs informations and results. At the first launch, this folder should be an empty folder, the container will populate it. If you don't want a persistent submissions database, simply do not specify this volume.
 
 You can also use `docker-compose`. Be sure to change the volume paths with:
